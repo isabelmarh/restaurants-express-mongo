@@ -1,0 +1,92 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+    <center style="margin: 10px;">
+        <button type="button" class="btn btn-outline-success my-2 my-sm-0"
+            style="color: black; font-weight: 800;" data-toggle="modal"
+            data-target="#exampleModal" data-whatever="@mdo">Add
+            Restaurant</button>
+
+    </center>
+    <div class="row justify-content-center">
+        <% for(let i=0;i<data.length;i++){ %>
+        <div class="col-md-auto p-3">
+            <div class="card-body bg-white rounded">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= data[i].image %>" class="card-img-top"
+                        alt="Restaurants">
+                    <div class="card-body">
+                        <h4><%= data[i].name %></h4>
+                        <p class="card-text"><%= data[i].description %></p>
+                        <center>
+                            <a href="/restaurants/<%= data[i]._id %>"
+                                class="btn btn-outline-success my-2 my-sm-0"
+                                type="submit">View More</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add a Restaurant
+                </h5>
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/restaurants" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="restaurant-name"
+                            class="col-form-label">name:</label>
+                        <input type="text" name="name" class="form-control"
+                            id="restaurant-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant-description"
+                            class="col-form-label">description:</label>
+                        <textarea name="description" class="form-control"
+                            id="restaurant-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant-phoneNumber"
+                            class="col-form-label">phoneNumber:</label>
+                        <input type="number" name="phoneNumber"
+                            class="form-control" id="restaurant-phoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant-location"
+                            class="col-form-label">location:</label>
+                        <input type="text" name="location" class="form-control"
+                            id="restaurant-location">
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant-image"
+                            class="col-form-label">image file:</label>
+                        <input type="file" name="image" value=""
+                            class="form-control-file" id="restaurant-image">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                        <button type="submit"
+                            class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer") %>

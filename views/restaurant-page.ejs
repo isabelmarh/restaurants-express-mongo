@@ -1,0 +1,30 @@
+<%- include("./partials/header"); -%>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+
+            <img src="<%=data.image%>">
+            <div style="padding-left: 20px;">
+                <h1 class="display-4"><%=data.name.toUpperCase()%></h1>
+                <p class="lead">Details : <%=data.description%></p>
+                <p class="lead">Book Order : <%=data.phoneNumber%></p>
+                <p class="lead">Address : <%=data.location%></p>
+                <a href="/restaurants/edit/<%= data._id%>"
+                    class="btn btn-outline-success my-2 my-sm-0"
+                    type="submit">Edit</a>
+                <form action='/restaurants/<%=data._id%>?_method=DELETE'
+                    method="POST">
+                    <button class="btn btn-outline-danger my-2 my-sm-0"
+                        type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<%- include("./partials/footer"); -%>

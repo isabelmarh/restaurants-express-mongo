@@ -1,0 +1,92 @@
+<%- include("./partials/header") %>
+
+    <div class="container">
+        <center style="margin: 10px;">
+            <button type="button" class="btn btn-outline-success my-2 my-sm-0"
+                style="color: black; font-weight: 800;" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@mdo">Add
+                Store</button>
+        </center>
+        <div class="row justify-content-center">
+            <% for(let i=0;i<data.length;i++){ %>
+                <div class="col-md-auto p-3">
+                    <div class="card-body bg-white rounded">
+                        <div class="card" style="width: 18rem;">
+                            <img src="stores/uploads/<%=data[i].storeImage%>"
+                                class="card-img-top" alt="Stores">
+                            <div class="card-body">
+                                <h4>
+                                    <%= data[i].storeName %>
+                                </h4>
+                                <p class="card-text">
+                                    <%= data[i].storeContact %>
+                                </p>
+                                <center>
+                                    <a href="/stores/<%= data[i]._id %>"
+                                        class="btn btn-outline-success my-2 my-sm-0"
+                                        type="submit">View More</a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a Store
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="stores/uploads" method="POST"
+                        enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="store-name" class="col-form-label">Store
+                                name:</label>
+                            <input type="text" name="storeName"
+                                class="form-control" id="store-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-contact"
+                                class="col-form-label">Store
+                                contact:</label>
+                            <input type="number" name="storeContact"
+                                class="form-control" id="store-contact">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-Address"
+                                class="col-form-label">Store
+                                address:</label>
+                            <input type="text" name="storeAddress"
+                                class="form-control" id="store-Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="store-image"
+                                class="col-form-label">image
+                                url:</label>
+                            <input type="file" name="storeImage"
+                                class="form-control-file" id="store-image">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit"
+                                class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include("./partials/footer") %>
