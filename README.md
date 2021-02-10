@@ -2,7 +2,7 @@
 
 Restaurant project using server-side rendering and file uploads
 
-<a href="https://http://restaurant-shops.herokuapp.com//" target="_blank"><strong>>> LIVE DEMO</strong></a>
+<a href="https://restaurant-shops.herokuapp.com//" target="_blank"><strong>>> LIVE DEMO</strong></a>
 
 Technologies used:
 
