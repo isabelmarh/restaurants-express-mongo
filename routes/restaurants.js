@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
     res.render("error");
   }
 });
-//class week9 day4
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const { name, description, phoneNumber, location, image } = req.body;

@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     }
 });
 
-// // Check File Type
+// Check File Type
 function checkFileType(file, cb) {
     // Allowed ext
     const filetypes = /jpeg|jpg|png|gif/;
