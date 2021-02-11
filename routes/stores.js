@@ -3,7 +3,6 @@ var router = express.Router();
 const { STORE } = require("../models");
 const multer = require('multer');
 var path = require('path');
-// var upload = multer({ dest: 'uploads/' });
 
 router.get("/", async (req, res) => {
     try {
